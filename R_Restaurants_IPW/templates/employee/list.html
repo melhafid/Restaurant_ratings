@@ -1,0 +1,17 @@
+{% extends 'layouts/base.html'%}
+
+{% block content%}
+<head>
+    <title>Liste des Employés</title>
+</head>
+<body>
+<h2 class="titre">Liste des employés</h2>
+{% for m in employee_list %}
+    <article class="object_list">
+    <p>
+        <a href="{% url 'empl_detail' m.e_name %}"> {{ m.e_name }} {{ m.e_fname }}</a>
+    </p>
+    </article>
+{% endfor %}
+</body>
+{% endblock %}

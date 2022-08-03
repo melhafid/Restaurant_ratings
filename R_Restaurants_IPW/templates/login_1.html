@@ -1,0 +1,23 @@
+{% extends 'layouts/base.html'%}
+
+
+{% block content%}
+
+<head>
+    <title>Title</title>
+    <h2 class="titre">Bienvenue sur Rate Your Restaurant !</h2>
+
+    <p class="object_details">Vous êtes connecté.</p>
+
+</head>
+<body>
+<br>
+<p class="lien">
+<a href="{% url 'logout' %}">Logout</a>
+</p>
+</body>
+
+{% endblock %}
+
+
+

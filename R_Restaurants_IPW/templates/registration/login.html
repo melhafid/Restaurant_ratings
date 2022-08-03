@@ -1,0 +1,46 @@
+{% load static %}
+
+
+<nav class="navbar">
+    <div class="wrapper">
+        <ul class="navbar-right">
+            <li><a href="{% url 'homepage' %}">Accueil</a></li>
+            <li><a href="{% url 'restaurants' %}">Restaurants</a></li>
+            <li><a href="{% url 'employee' %}">Employés</a></li>
+            <li><a href="{% url 'ratings' %}">Ratings</a></li>
+            <li><a href="{% url 'register' %}">Inscription</a></li>
+            <li><a href="{% url 'login_1' %}">Connexion</a></li>
+        </ul>
+    </div>
+</nav>
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}"/>
+    <title>RYR - Login</title>
+</head>
+<body>
+<h2 class="titre" > Connectez-vous !</h2>
+{% if form.errors %}
+<p>Le nom d'utilisateur et le mot de passe ne correspondent pas.</p>
+{% endif %}
+
+{% if next %}
+    {% if user.is_authenticated %}
+    <p>Your account doesn't have access to this page. To proceed,
+    please login with an account that has access.</p>
+    {% endif %}
+{% endif %}
+<article class="object_list">
+<form method="post" action="{% url 'login' %}">
+{% csrf_token %}
+Nom d'utilisateur : {{ form.username }}
+<br>Mot de passe : {{ form.password }}
+<br>
+<input type="submit" value="Se connecter">
+<input type="hidden" name="next" value="{{ next }}">
+</form>
+</article>
+</body>
+
+</html>

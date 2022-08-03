@@ -1,0 +1,27 @@
+{% extends 'layouts/base.html'%}
+
+{% block content%}
+
+<body>
+<h2 class="titre">{{ all_restaurants }}</h2>
+<p class="object_details">Année de lancement : {{ all_restaurants.y_launch }}
+<br>
+<br>Numéro de TVA : {{ all_restaurants.tva_nr }}
+<br>
+<br>Adresse mail : {{ all_restaurants.email_address }}
+<br>
+<br>Ville : {{ all_restaurants.city}}
+<br>
+<br>Employés :
+{% for e in all_restaurants.has_employee.all %}
+     <br>- {{ e }}
+
+{% empty %}
+    <p class="object_details">Ce restaurant n'a pas d'employé ! </p>
+{% endfor %}
+</p>
+<p class="object_details">Moyenne des avis : {{mean }}
+    <br>Pour noter ce restaurant : <a href="{% url 'rate' all_restaurants.pk %}"> Cliquez ici </a></p>
+</body>
+
+{% endblock %}

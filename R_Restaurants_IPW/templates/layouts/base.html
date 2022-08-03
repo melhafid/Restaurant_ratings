@@ -1,0 +1,17 @@
+{% load static %}
+
+<head>
+    <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}"/>
+    <meta charset="UTF-8">
+    <title>Rate Your Restaurant</title>
+
+
+</head>
+<body>
+{% include 'layouts/navbar.html'%}
+<div class="wrapper">
+{% block content%}{% endblock%}
+</div>
+{% include 'layouts/footer.html'%}
+</body>
+</html>

@@ -1,0 +1,18 @@
+{% extends 'layouts/base.html'%}
+
+{% block content%}
+<head>
+    <title>Liste des restaurants</title>
+</head>
+<body>
+<h2 class="titre">Liste des restaurants</h2>
+{% for m in restaurant_list %}
+    <div class="object_list">
+    <p>
+        <a href="{% url 'rest_detail' m.r_name %}"> {{ m.r_name }} - {{ m.city }}</a>
+    </p>
+    </div>
+{% endfor %}
+
+</body>
+{% endblock %}

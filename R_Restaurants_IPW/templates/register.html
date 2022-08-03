@@ -1,0 +1,18 @@
+{% extends 'layouts/base.html'%}
+
+{% block content%}
+<head>
+    <title>Register</title></head>
+<body>
+<h2 class="titre">Inscrivez-vous !</h2>
+<article class="object_details">
+<form method="post">
+
+    {{form.as_table}}
+     {% csrf_token %}
+    <input type ="submit" value="Inscription">
+
+</form>
+</article>
+</body>
+{% endblock %}

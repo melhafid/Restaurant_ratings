@@ -1,0 +1,21 @@
+{% extends 'layouts/base.html'%}
+
+{% block content%}
+<head>
+    <title>ratings</title>
+</head>
+<body>
+<h2 class="titre">Liste des ratings</h2>
+{% for r in rating_list %}
+    <article class="object_list">
+    <h4>
+        {{ r.r_rated }}
+    </h4>
+        <p>Commentaire : {{ r.comment }}
+        <br>Note : {{ r.rating }}
+        <br>Publié le :{{ r.time }}</p>
+
+    </article>
+{% endfor %}
+
+{% endblock %}

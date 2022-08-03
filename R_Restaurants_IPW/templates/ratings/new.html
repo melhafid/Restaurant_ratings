@@ -1,0 +1,18 @@
+{% extends 'layouts/base.html'%}
+
+{% block content%}
+    <head>
+        <title>new rating</title>
+    </head>
+    <body>
+        <h3 class="titre"> Donnez votre avis sur {{ restaurant }} !</h3>
+        {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+
+        <form class="object_list" method="post">
+            {% csrf_token %}
+            {{form.as_p}}
+            <input type="submit" value="Soumettre">
+        </form>
+
+    </body>
+{% endblock %}

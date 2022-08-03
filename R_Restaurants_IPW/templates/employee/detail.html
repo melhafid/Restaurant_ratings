@@ -1,0 +1,25 @@
+{% extends 'layouts/base.html'%}
+
+{% block content%}
+<head>
+    <title>RYR</title>
+</head>
+<body>
+<h2 class="titre">{{ all_employee }}</h2>
+<p class="object_details">Nom et Prénom : {{ all_employee.e_name }}
+<br>
+<br>Année(s) d'ancienneté: {{ all_employee.y_worked }} an(s)
+<br>
+<br>Fonction : {{ all_employee.job}}
+<br>
+<br>Travaille à :
+<br>
+{% for e in all_employee.work_r.all %}
+      {{ e }}
+
+{% empty %}
+    <p class="object_details">Cet employé ne travaille dans aucun restaurant </p>
+{% endfor %}
+</p>
+</body>
+{% endblock %}
